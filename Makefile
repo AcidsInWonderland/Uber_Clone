@@ -9,7 +9,7 @@ BINDIR = bin
 DOCDIR = doc
 TESTDIR = test
 
-JUNIT = ./gson/gson-2.8.6.jar -sourcepath ./src ./src/$*.java
+JUNIT = ./gson/gson-2.8.2.jar -sourcepath ./src ./src/$*.java
 
 
 JAVAC = javac
