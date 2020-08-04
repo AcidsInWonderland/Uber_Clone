@@ -34,7 +34,7 @@ doc:
 	javadoc -d $(DOCDIR) -cp $(DOCDIR) $(SRCDIR)/*.java
 
 test_classes: Person.class Car.class Driver.class Vehicle.class Passenger.class \
-			UberApp.class Ride.class UberRide.class
+			UberApp.class Ride.class UberRide.class Database.class
 	      
 junit: test_classes
 	
@@ -54,7 +54,7 @@ Ride.class: Ride.java
 	javac -d $(BINDIR) -cp $(JUNIT)
 UberRide.class: UberRide.java
 	javac -d $(BINDIR) -cp $(JUNIT)
-Test.class: Test.java
+Database.class: Database.java
 	javac -d $(BINDIR) -cp $(JUNIT)
 
 
