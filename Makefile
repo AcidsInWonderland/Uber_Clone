@@ -9,7 +9,7 @@ BINDIR = bin
 DOCDIR = doc
 TESTDIR = test
 
-JUNIT = ./gson/gson-2.8.2.jar -sourcepath ./src ./src/$*.java
+JUNIT = ..\gson\gson-2.8.2-javadoc.jar -sourcepath ./src ./src/$*.java
 
 
 JAVAC = javac
@@ -61,8 +61,8 @@ Test.class: Test.java
 #test_classes: SearchItLinearTest.java eDirectoryTest.java #SearchItTest.java PrintItTest.java
 	      
 #junit: test_classes
-#	javac -d $(BINDIR) -cp ../junit/junit-4.12.jar -sourcepath ./src $*.java
-#	#java -cp $(BINDIR):$(JUNIT) org.junit.runner.JUnitCore $*.java	
+#	javac -d $(BINDIR) -cp ../gson/gson-2.8.2.jar -sourcepath ./src ./src/$*.java
+#	java -cp C:\Users\rlesc\Documents\GitHub\uberClone\gson\gson-2.8.2-javadoc.jar	
 
 clean:
 	rm -f  $(BINDIR)/*.class

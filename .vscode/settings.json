@@ -24,5 +24,9 @@
             "mainClass": "UberRide",
             "projectName": "uberClone_63e74681"
         }
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "gson/gson-2.8.2-javadoc.jar"
     ]
 }

@@ -4,18 +4,17 @@ public class UberApp {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Uber App");
-
-        Passenger lonwabo = new Passenger("lonwabo@gmail.com", "Lonwabo", "Mvovo","0731223283", 12000);
         
-        Scanner sc = new Scanner(System.in);
+        // Passenger lonwabo = new Passenger("lonwabo@gmail.com", "Lonwabo", "Mvovo","0731223283", 12000);
+        try(Scanner scanner = new Scanner(System.in)){
         System.out.println("Please enter your current starting location");
-        String startPoint = sc.nextLine();
+        String startPoint = scanner.nextLine();
 
         System.out.println("Please enter your final destination location");
-        String endPoint = sc.nextLine();
+        String endPoint = scanner.nextLine();
 
         System.out.println("Please vehicle of your choice, either XL or X");
-        String vehicleType = sc.nextLine();
+        String vehicleType = scanner.nextLine();
         
         System.out.print("Starting Point: ");
         System.out.print(startPoint);
@@ -34,9 +33,7 @@ public class UberApp {
         // System.out.println(akhil);
 
         // Driver sam = new Driver(bmw, "LICENSE12345", "Sam", "Surname","0731281283", 1000);
-        // System.out.println(sam);
-
-        
+        // System.out.println(sam); 
     }
-
+}
 }

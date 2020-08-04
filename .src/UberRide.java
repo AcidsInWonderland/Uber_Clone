@@ -8,7 +8,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-import com.google.gson.*;
+import com.google.gson.*;  
 import java.util.*;
 
 // response.rows[0].elements[0].distance.text
@@ -47,7 +47,7 @@ public class UberRide extends Ride {
     }
 
     public static void MyGETRequest() throws IOException {
-        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?origins=uct,SA&destinations=canalwalkshoppingcentre,SA&departure_time=now&key=AIzaSyCs2UIPeA_ygj6aDL45ta9ZdJu3Mo1PIOs");
+        URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=UCT,SA&destinations=Canalwalkshoppingcenter,SA&key=AIzaSyAKi0OoYNV_ItvLtJM5fjWWgBSpoow4hYA");
         String readLine = null;
         HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
         conection.setRequestMethod("GET");
