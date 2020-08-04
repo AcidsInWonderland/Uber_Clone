@@ -21,37 +21,99 @@ public class UberRide extends Ride {
     double rate;
     Driver driver;
     Passenger passenger;
+    double distance;
 
 
-    UberRide(String startpoint, String endpoint, double price,Driver driver,Passenger passenger){
+    UberRide() {}
+
+    UberRide(String startpoint, String endpoint, Passenger passenger){
         super();
         this.startpoint = startpoint;
         this.endpoint = endpoint;
         this.price = price;
         this.rate = rate;
-        this.driver = driver;
+        this.driver = null;
         this.passenger = passenger;
     }
 
-    public double calculateDistance(String startingPoint, String endingPoint) {
-        return 12.0;
-    }
-    public void assignDriver() {
+   
+
+    public Driver assignDriver() {
+        //connect to database and fetch list of drivers DB
+        //call the function that takes X/XL - from user
+            /**
+             * read data from csv
+             * create car object using last 4 columns
+             * create driver object using first 5 columns
+             * add driver to Driver[]
+             */
+
+        //call the function that return random driver
+
+        Database DB = new Database();
+        DB.getDriversArray();
+        Driver[] drivers = DB.getArrayByVehicleType("XL");
+        // DB.printArray(drivers);
+
+        Random ran = new Random();
+        int randomIndex = ran.nextInt(drivers.length-1);
+
+        this.driver = drivers[randomIndex];
         
+        return drivers[randomIndex];
     }
-    public double calculateCost() {
-        return 12.00;
-    }
-    public void completePayment() {
+    
+    public void completePayment(Driver driver, Passenger passenger) {
+       /**
+        * Add money to driver
+        * Deduct money from passenger
+        */
 
+        
+        double driverBalance = driver.getCash();
+        driver.setCash(driverBalance + this.price);
+        System.out.println("Adding R" + (int)this.price + " to driver account. Account bal: R" + driver.getCash());
+
+        double passengerBalance = passenger.getCash();
+        passenger.setCash(passengerBalance - this.price);
+        System.out.println("Deducting R" + (int)this.price + " from passenger account. Account bal: R" + passenger.getCash());
     }
 
-    public static void MyGETRequest() throws IOException {
+    public double calculateDistance(String startingPoint, String endingPoint) throws IOException {
+        double distance = 0.0;
+        UberRide uberRide = new UberRide();
+        distance = uberRide.MyGETRequest(startingPoint, endingPoint);
+
+        this.distance = distance/1000;
+        System.out.println("The distance is: " + this.distance + " km");
+        return (distance/1000);
+    }
+    
+    private double MyGETRequest(String startingPoint, String endingPoint) {
+        return 0;
+    }
+
+    public double calculateCost(String startingPoint, String endingPoint) throws IOException {
+
+        double cost = 0.0;
+        UberRide uberRide = new UberRide();
+        double distance = uberRide.calculateDistance(startingPoint, endingPoint);
+        cost = distance * this.driver.getCar().getBaseRate();
+        this.price = cost;
+        System.out.println("The cost is: R" + (int)this.price);
+        return cost;
+    }
+
+    public static double MyGETRequest() throws IOException {
         URL urlForGetRequest = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=UCT,SA&destinations=Canalwalkshoppingcenter,SA&key=AIzaSyAKi0OoYNV_ItvLtJM5fjWWgBSpoow4hYA");
         String readLine = null;
         HttpURLConnection conection = (HttpURLConnection) urlForGetRequest.openConnection();
         conection.setRequestMethod("GET");
         int responseCode = conection.getResponseCode();
+
+
+        UberRide uberRide = new UberRide();
+        double distance = 0.0;
         if (responseCode == HttpURLConnection.HTTP_OK) {
             BufferedReader in = new BufferedReader(
                 new InputStreamReader(conection.getInputStream()));
@@ -61,19 +123,25 @@ public class UberRide extends Ride {
             } in .close();
             // print result
             // System.out.println("JSON String Result " + response.toString());
-            retrieveDistanceAsString(response.toString());
+            String distanceAsString = uberRide.retrieveDistanceAsString(response.toString());
+            distance = Double.parseDouble(distanceAsString);
         } else {
+            // response = error;
             System.out.println("GET NOT WORKED");
         }
-    }
 
+        
+        
+
+        return distance;
+    }
     /**
      * converts jsonstring to gson object, then it returns the text length
      * can access elements using: 
      * getAsJsonObject
      * getAsJsonArray
      */
-    public static void retrieveDistanceAsString(String jsonString) {
+    public String retrieveDistanceAsString(String jsonString) {
         GsonBuilder builder = new GsonBuilder(); 
         builder.setPrettyPrinting(); 
         Gson gson = builder.create(); 
@@ -91,11 +159,30 @@ public class UberRide extends Ride {
          while(iterator.hasNext()) {
              je = iterator.next();
              jsonObject = je.getAsJsonObject().get("distance").getAsJsonObject();
-             System.out.println(jsonObject.get("value"));
+            //  System.out.println(jsonObject.get("value"));
+
+            //  try {
+            //     jsonObject = je.getAsJsonObject().get("distance").getAsJsonObject();
+            //  }
+            //  catch(Exception e) {
+
+            //  }
          }
+
+         return jsonObject.get("value")+"";
+
+
     }
 
-    public static void main(String[] args) throws IOException {
-        MyGETRequest();
+    @Override
+    public double calculateCost() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void completePayment() {
+        // TODO Auto-generated method stub
+
     }
 }

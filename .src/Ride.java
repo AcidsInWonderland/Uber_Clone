@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Abstract class 
  * 
@@ -12,8 +14,8 @@ public abstract class Ride {
     String endingPoint;
 
     //methods that can be overriden
-    public abstract double calculateDistance(String startingPoint, String endingPoint);
-    public abstract void assignDriver();
+    public abstract double calculateDistance(String startingPoint, String endingPoint) throws IOException;
+    public abstract Driver assignDriver();
     public abstract double calculateCost();
     public abstract void completePayment();
 

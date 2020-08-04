@@ -34,4 +34,13 @@ public class Car implements Vehicle {
     public String toString() {
         return this.model + " car of " + this.color + " color, with number plate: " + this.numberPlate;
     }
+
+	public double getBaseRate() {
+		return 0;
+	}
+
+	public Object getVehicleType() {
+		return null;
+    }
+    
 }
