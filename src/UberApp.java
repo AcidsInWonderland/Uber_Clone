@@ -24,6 +24,23 @@ public class UberApp {
         System.out.print(vehicleType);
         System.out.println("");
         
+        
+        Passenger Robyn;
+		UberRide uberRide = new UberRide(startPoint, endPoint, Robyn);
+
+        Driver assignedDriver = uberRide.assignDriver();
+
+        System.out.println("\nCalculating cost...");
+        uberRide.calculateCost(startPoint, endPoint);
+        System.out.println("\nFinding you a driver...");
+        System.out.println("Assigned driver: " + assignedDriver.getName() +
+                           " " + assignedDriver.getSurname());
+        System.out.println("Assigned car: " + assignedDriver.getCar());
+        System.out.println("\nYour ride is complete. Processing payment...");
+        uberRide.completePayment(assignedDriver, Robyn);
+    }
+
+}
 
 
         // Car bmw = new Car("KA1234", "black", "BMW X5", "XL");
@@ -35,5 +52,3 @@ public class UberApp {
         // Driver sam = new Driver(bmw, "LICENSE12345", "Sam", "Surname","0731281283", 1000);
         // System.out.println(sam); 
     }
-}
-}

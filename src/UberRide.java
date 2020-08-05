@@ -1,11 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 import com.google.gson.*;
@@ -30,8 +26,6 @@ public class UberRide extends Ride {
         super();
         this.startpoint = startpoint;
         this.endpoint = endpoint;
-        this.price = price;
-        this.rate = rate;
         this.driver = null;
         this.passenger = passenger;
     }
@@ -170,6 +164,18 @@ public class UberRide extends Ride {
 
          return jsonObject.get("value")+"";
 
+
+    }
+
+    @Override
+    public double calculateCost() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void completePayment() {
+        // TODO Auto-generated method stub
 
     }
 }
