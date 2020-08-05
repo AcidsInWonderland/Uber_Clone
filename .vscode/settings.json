@@ -27,6 +27,8 @@
     ],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "gson/gson-2.8.2-javadoc.jar"
-    ]
+        "gson/gson-2.8.2-javadoc.jar",
+        "c:\\Users\\rlesc\\Downloads\\uberClone_OOP-master\\uberClone_OOP-master\\gson\\gson-2.8.6.jar"
+    ],
+    "java.dependency.packagePresentation": "hierarchical"
 }
