@@ -25,7 +25,8 @@ public class UberApp {
         System.out.println("");
         
         
-        Passenger Robyn;
+        Passenger Robyn = new Passenger("rlesch97@gmail.com", "Robyn", "Lesch",
+                                        "0821234567", 1000);
 		UberRide uberRide = new UberRide(startPoint, endPoint, Robyn);
 
         Driver assignedDriver = uberRide.assignDriver();

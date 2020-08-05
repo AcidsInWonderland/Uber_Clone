@@ -10,11 +10,10 @@ public class Database {
 
     //constructor
     Database() {}
-
     public int countLinesInCSV(String filename) {
         int i = 0;
         try {
-            BufferedReader csvReader = new BufferedReader(new FileReader(filename));
+            BufferedReader csvReader = new BufferedReader(new FileReader(filename)); 
             String row = null;
             while ((row = csvReader.readLine()) != null) {
                 i++;
