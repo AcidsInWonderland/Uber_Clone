@@ -7,10 +7,12 @@ import java.net.URL;
 import com.google.gson.*;
 import java.util.*;
 
+// I understand how Inheritance works
+// I know how to use Inheritance
 // response.rows[0].elements[0].distance.text
 public class UberRide extends Ride {
 
-    //instance variables
+    //I can create Instance variables and am able to to use another class type variable in another class
     String startpoint;
     String endpoint;
     double price;
@@ -30,7 +32,7 @@ public class UberRide extends Ride {
         this.passenger = passenger;
     }
 
-   
+   // I know how to read and write to CSV 
 
     public Driver assignDriver() {
         //connect to database and fetch list of drivers DB
@@ -43,8 +45,13 @@ public class UberRide extends Ride {
              */
 
         //call the function that return random driver
+        // I can add other necessary functions for the class and am able to take in other class parameters
+        // I have the ability to call created class objects e.g Car c = new Car()
 
+        // I know how to use ArrayLists
+        //I know how encapsulation works
         Database DB = new Database();
+        // I know how to use Arrays
         DB.getDriversArray();
         Driver[] drivers = DB.getArrayByVehicleType("XL");
         // DB.printArray(drivers);
@@ -57,6 +64,7 @@ public class UberRide extends Ride {
         return drivers[randomIndex];
     }
     
+    // I have the ability to add one class object to other new class object
     public void completePayment(Driver driver, Passenger passenger) {
        /**
         * Add money to driver
@@ -166,7 +174,10 @@ public class UberRide extends Ride {
 
 
     }
-
+    // I understand Polymorphism
+    // I know how to use Polymorphism
+    // I understand what Overriding 
+    // I know how to override methods
     @Override
     public double calculateCost() {
         // TODO Auto-generated method stub

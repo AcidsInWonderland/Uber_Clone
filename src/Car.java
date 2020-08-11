@@ -7,7 +7,7 @@ public class Car implements Vehicle {
     String type;
     double base_rate;
 
-    //constructor
+    //I am able to create constructors and understand what a constructor does
     Car(String numberPlate, String color, String model, String type) {
         this.numberPlate = numberPlate;
         this.color = color;
@@ -20,7 +20,8 @@ public class Car implements Vehicle {
         }
     }
 
-    //methods
+    //I know how to create setters and getters
+    // I understand encapsulation
     public String getNumberPlate() {
         return this.numberPlate;
     }
@@ -31,6 +32,8 @@ public class Car implements Vehicle {
         return this.model;
     }
 
+    //I know how to create a toString() function
+    //I know what a toString() function does
     public String toString() {
         return this.model + " car of " + this.color + " color, with number plate: " + this.numberPlate;
     }

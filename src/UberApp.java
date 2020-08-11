@@ -2,6 +2,9 @@ import java.util.*;
 
 public class UberApp {
 
+    // I know how to use the main function in a class to test the functionality of the class
+    // I constantly compile my code to see if I have errors, eg. after every piece of logic I write, or after each variable or loop.
+    // I have the Ability to use System.out.println to debug e.g printing out the contents of the variable in middle of code to see if the variable is holding the expected value
     public static void main(String[] args) {
         System.out.println("Welcome to Uber App");
         

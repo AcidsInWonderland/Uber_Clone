@@ -5,6 +5,8 @@ import java.io.IOException;
  * 
  * To allow to create UberRide, or TaxifyRide, BoltRide
  * 
+ * // I understand how interfaces and Abstract classes work 
+ * 
  */
 
 public abstract class Ride {
@@ -13,7 +15,9 @@ public abstract class Ride {
     String estartingPoint;
     String endingPoint;
 
-    //methods that can be overriden
+    // I understand how to use interfaces and abstract classes
+    //I understand what Overloading is
+    // I know how to overload methods
     public abstract double calculateDistance(String startingPoint, String endingPoint) throws IOException;
     public abstract Driver assignDriver();
     public abstract double calculateCost();

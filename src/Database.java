@@ -9,6 +9,7 @@ public class Database {
     Driver[] drivers;
 
     //constructor
+    // I have the Ability to understand what the errors mean when shown on the terminal - e.g can not find symbol, NullPointerException, IndexOutofBound etc, if not, I google and understand what the errors mean
     Database() {}
     public int countLinesInCSV(String filename) {
         int i = 0;
