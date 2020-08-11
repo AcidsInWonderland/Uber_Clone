@@ -47,7 +47,7 @@ public class Database {
          */
 
         try {
-            BufferedReader csvReader = new BufferedReader(new FileReader("drivers.csv"));
+            BufferedReader csvReader = new BufferedReader(new FileReader("../bin/drivers.csv"));
             String row = null;
             int i = 0;
             this.drivers = new Driver[countLinesInCSV("drivers.csv")-1];
